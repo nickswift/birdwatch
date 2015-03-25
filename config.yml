@@ -1,0 +1,9 @@
+publicist:
+  version:
+    major: 0
+    minor: 0
+
+delorean:
+  version:
+    major: 0
+    minor: 0
