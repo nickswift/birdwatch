@@ -36,3 +36,6 @@ ${BIN_DELOREAN}:
 
 clean:
 	rm -f ${BIN_PUBL} ${BIN_DELOREAN}
+
+fmt:
+	gofmt -s -w .

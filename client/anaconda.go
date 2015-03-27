@@ -1,6 +1,6 @@
 package client
 
-import(
+import (
 	"github.com/chimeracoder/anaconda"
 )
 
@@ -32,10 +32,10 @@ func NewTwitterClient(ckey, ssecret, atoken, asecret string) *TwitterClient {
 	anaconda.SetConsumerKey(ckey)
 	anaconda.SetConsumerSecret(ssecret)
 	api := anaconda.NewTwitterApi(atoken, asecret)
-	
+
 	return &TwitterClient{
 		Consumer: NewConsumer(ckey, ssecret),
-		Access: NewAccess(atoken, asecret),
-		Api: api
+		Access:   NewAccess(atoken, asecret),
+		Api:      api,
 	}
 }
