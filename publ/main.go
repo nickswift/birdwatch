@@ -7,6 +7,7 @@ import (
 	config "github.com/nickswift498/birdwatch/config"
 	"github.com/nickswift498/birdwatch/publ/cli/actions"
 	"github.com/nickswift498/birdwatch/publ/cli/tasks"
+	"github.com/nickswift498/birdwatch/client"
 	"os"
 )
 
@@ -28,8 +29,16 @@ func version() string {
 func main() {
 	title()
 
-	cliReader := bufio.NewReader(os.Stdin)
+	// Get Twitter API information
+	consumerKey := os.Getenv("BW_CONSUMER_KEY")
+	consumerSecret := os.Getenv("BW_CONSUMER_SECRET")
+	accessToken := os.Getenv("BW_ACCESS_TOKEN")
+	accessSecret := os.Getenv("BW_ACCESS_SECRET")
+	
+	// get Twitter API
+	tc := client.NewTwitterClient(consumerKey, consumerSecret, accessToken, accessSecret)
 
+	cliReader := bufio.NewReader(os.Stdin)
 	for {
 		// user prompt
 		fmt.Printf("%s > ", version())
@@ -40,12 +49,33 @@ func main() {
 			pargs = []string{""}
 		}
 
-		// TODO: catch unrecognized commands
+		// catch exit command
+		if paction == "exit" {
+			break
+		}
+
+		// catch unrecognized commands
+		cmdOK := true
+		if _, ok := actions.Actions[paction]; !ok {
+			fmt.Println("unrecognized action")
+			cmdOK = false
+		}
+		if _, ok := tasks.Tasks[ptask]; !ok {
+			fmt.Println("unrecognized task")
+			cmdOK = false
+		}
+		if !cmdOK {
+			continue
+		}
 
 		// get action/task functions
 		action := actions.Actions[paction]
 		task := tasks.Tasks[ptask]
 
-		action(task, pargs...)
+		// do action
+		action(tc, task, pargs...)
 	}
+
+	// print witty parting-message
+	fmt.Println("excelsior!")
 }

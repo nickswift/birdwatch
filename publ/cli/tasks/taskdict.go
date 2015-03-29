@@ -8,6 +8,8 @@ import (
 var (
 	Tasks = map[string]tasks.Task{
 		"":       nil,
-		"simple": TaskSimple,
+		"twitapi"   : TaskTwitterAPIInfo,
+		"search"    : TaskSearch,
+		"following" : TaskFollowers,
 	}
 )

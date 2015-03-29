@@ -1,6 +1,7 @@
 package client
 
 import (
+	// "time"
 	"github.com/chimeracoder/anaconda"
 )
 
@@ -32,6 +33,9 @@ func NewTwitterClient(ckey, ssecret, atoken, asecret string) *TwitterClient {
 	anaconda.SetConsumerKey(ckey)
 	anaconda.SetConsumerSecret(ssecret)
 	api := anaconda.NewTwitterApi(atoken, asecret)
+
+	// set rate-limiting stuff -- right now, it's at 180 queries per 15 minutes
+	// api.SetDelay(5 * time.Second)
 
 	return &TwitterClient{
 		Consumer: NewConsumer(ckey, ssecret),

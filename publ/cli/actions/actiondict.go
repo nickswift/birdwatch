@@ -7,7 +7,8 @@ import (
 // establish a mapping of keys to function pointers (basically a jump-table)
 var (
 	Actions = map[string]actions.Action{
-		"":      nil,
-		"print": actions.ActionPrint,
+		""         : nil,
+		"print"    : actions.ActionPrint,
+		"unfollow" : ActionUnfollow,
 	}
 )
