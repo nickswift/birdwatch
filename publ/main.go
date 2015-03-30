@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/nickswift498/birdwatch/cli"
-	config "github.com/nickswift498/birdwatch/config"
+	"github.com/nickswift498/birdwatch/config"
 	"github.com/nickswift498/birdwatch/publ/cli/actions"
 	"github.com/nickswift498/birdwatch/publ/cli/tasks"
 	"github.com/nickswift498/birdwatch/client"
@@ -25,18 +25,15 @@ func title() {
 func version() string {
 	return fmt.Sprintf("publicist v%d.%d", config.PUBL_VERSION_MAJOR, config.PUBL_VERSION_MINOR)
 }
+func help() string {
+	return "help string here"
+}
 
 func main() {
 	title()
 
-	// Get Twitter API information
-	consumerKey := os.Getenv("BW_CONSUMER_KEY")
-	consumerSecret := os.Getenv("BW_CONSUMER_SECRET")
-	accessToken := os.Getenv("BW_ACCESS_TOKEN")
-	accessSecret := os.Getenv("BW_ACCESS_SECRET")
-	
 	// get Twitter API
-	tc := client.NewTwitterClient(consumerKey, consumerSecret, accessToken, accessSecret)
+	tc := client.TwitterClientFromEnv()
 
 	cliReader := bufio.NewReader(os.Stdin)
 	for {
@@ -49,8 +46,24 @@ func main() {
 			pargs = []string{""}
 		}
 
-		// catch exit command
-		if paction == "exit" {
+		// catch special commands first
+		var specialcmd, exitcmd bool
+
+		switch paction {
+			case "exit":
+				exitcmd = true
+				break
+			case "help":
+				specialcmd = true
+				fmt.Println(help())
+				break
+		}
+		// special commands take precedence
+		if specialcmd {
+			continue
+		}
+		// exit command quits
+		if exitcmd {
 			break
 		}
 

@@ -22,8 +22,7 @@ type Action func(tc *client.TwitterClient, task tasks.Task, args ...string)
 // dangerous action confirmation -- get confirmation of intent from the user before doing something that could be 
 // stupid/harmful
 func ConfirmActionIntent(reason string) bool {
-	fmt.Println("WARNING: this action will make changes to your Twitter account."
-	fmt.Println("This may do things you don't want or did not intend: ")
+	fmt.Println("WARNING:")
 	fmt.Println(reason)
 	fmt.Printf("\nAre you *sure* you intend to do this? (y/n) [n] > ")
 

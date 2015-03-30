@@ -27,7 +27,7 @@ func ActionUnfollow(tc *client.TwitterClient, task tasks.Task, args ...string) {
 	// assume the given task returns an actionable list of user Ids
 	tr := task(tc, args...)
 
-	if !actions.ConfirmActionIntent() {
+	if !actions.ConfirmActionIntent(UnfollowDangerReason) {
 		fmt.Printf(actions.ActionCancelledMsg)
 		return
 	}
