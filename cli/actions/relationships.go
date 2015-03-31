@@ -1,11 +1,5 @@
 package actions
 
-import(
-	"github.com/nickswift498/birdwatch/client"
-	"github.com/nickswift498/birdwatch/cli/actions"
-	"github.com/nickswift498/birdwatch/cli/tasks"
-	"fmt"
-)
 
 const (
 	UnfollowDangerReason = `

@@ -1,10 +1,5 @@
 package tasks
 
-import(
-	"github.com/nickswift498/birdwatch/client"
-	"fmt"
-)
-
 // find the currently selected user's information
 func TaskTwitterAPIInfo(tc *client.TwitterClient, args ...string) []string {
 	var ck, cs, at, as string

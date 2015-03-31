@@ -1,20 +1,8 @@
 package tasks
 
-import(
-	"github.com/chimeracoder/anaconda"
-	"github.com/nickswift498/birdwatch/client"
-	"fmt"
-	"strings"
-	"net/url"
-)
-
 const(
 	MaxFollowersIdsCount = 5000
 )
-
-// func TaskFriends(tc *client.TwitterClient, args ...string) []string {
-// 	
-// }
 
 // retrieve a list of IDs of followers of a specified screen name
 func TaskFollowers(tc *client.TwitterClient, args ...string) []string {
