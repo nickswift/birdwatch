@@ -1,6 +1,12 @@
 package tasks
 
-func TaskSearch(tc *client.TwitterClient, args ...string) []string {
+import(
+	"github.com/nickswift498/birdwatch/client"
+	"net/url"
+	"fmt"
+)
+
+func search(tc *client.TwitterClient, args ...string) []string {
 	res := []string{}
 	var v = url.Values{}
 	var lim string

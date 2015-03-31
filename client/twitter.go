@@ -1,7 +1,7 @@
 package client
 
 import (
-	// "time"
+	"github.com/nickswift498/birdwatch/config"
 	"github.com/chimeracoder/anaconda"
 )
 
@@ -47,11 +47,10 @@ func NewTwitterClient(ckey, csecret, atoken, asecret string) *TwitterClient {
 // Our main use-case is API info stored as environment variables
 // TODO: allow this to work with command line arguments at runtime
 func TwitterClientFromEnv() *TwitterClient {
-	consumerKey := os.Getenv("BW_CONSUMER_KEY")
-	consumerSecret := os.Getenv("BW_CONSUMER_SECRET")
-	accessToken := os.Getenv("BW_ACCESS_TOKEN")
-	accessSecret := os.Getenv("BW_ACCESS_SECRET")
+	consumerKey := config.APIConsumerKey
+	consumerSecret := config.APIConsumerSecret
+	accessToken := config.APIAccessToken
+	accessSecret := config.APIAccessSecret
 
 	return NewTwitterClient(consumerKey, consumerSecret, accessToken, accessSecret)
 }
-

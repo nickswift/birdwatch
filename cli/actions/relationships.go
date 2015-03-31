@@ -1,5 +1,10 @@
 package actions
 
+import(
+	"github.com/nickswift498/birdwatch/client"
+	"github.com/nickswift498/birdwatch/cli/tasks"
+	"fmt"
+)
 
 const (
 	UnfollowDangerReason = `
@@ -21,8 +26,8 @@ func ActionUnfollow(tc *client.TwitterClient, task tasks.Task, args ...string) {
 	// assume the given task returns an actionable list of user Ids
 	tr := task(tc, args...)
 
-	if !actions.ConfirmActionIntent(UnfollowDangerReason) {
-		fmt.Printf(actions.ActionCancelledMsg)
+	if !ConfirmActionIntent(UnfollowDangerReason) {
+		fmt.Printf(ActionCancelledMsg)
 		return
 	}
 

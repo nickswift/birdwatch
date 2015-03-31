@@ -14,25 +14,17 @@ SRC_DELOREAN  = ${ME}/delorean
 DIR_INSTALL = ${GOPATH}/bin/build
 
 # Binaries
-BIN_PUBL     = ${DIR_INSTALL}/publ
-BIN_DELOREAN = ${DIR_INSTALL}/delorean
-
-BINS = \
-  ${BIN_PUBL} \
-  ${BIN_DELOREAN}
+BIN = ${DIR_INSTALL}/birdwatch
 
 # Install Dependencies
-all: deps ${BINS}
+all: deps ${BIN}
 
 deps:
 	@echo "GO-GETTING DEPENDENCIES"
 	@go get ${DEPS}
 
-${BIN_PUBL}:
-	go install ${SRC_PUBLICIST}
-
-${BIN_DELOREAN}:
-	go install ${SRC_DELOREAN}
+${BIN}:
+	go install
 
 clean:
 	rm -f ${BIN_PUBL} ${BIN_DELOREAN}

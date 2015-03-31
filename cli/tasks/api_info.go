@@ -1,7 +1,12 @@
 package tasks
 
+import(
+	"github.com/nickswift498/birdwatch/client"
+	"fmt"
+)
+
 // find the currently selected user's information
-func TaskTwitterAPIInfo(tc *client.TwitterClient, args ...string) []string {
+func twitterAPIInfo(tc *client.TwitterClient, args ...string) []string {
 	var ck, cs, at, as string
 	strNSet := "not set"
 
@@ -27,12 +32,12 @@ func TaskTwitterAPIInfo(tc *client.TwitterClient, args ...string) []string {
 	}
 
 	return []string{
-		fmt.Sprintf("\nTwitter API Information\n"),
-		fmt.Sprintf("\nCONSUMER KEY    : %s", ck),
-		fmt.Sprintf("\nCONSUMER SECRET : %s", cs),
-		fmt.Sprintf("\nACCESS TOKEN    : %s", at),
-		fmt.Sprintf("\nACCESS SECRET   : %s\n", as),
+		fmt.Sprintf("\nTwitter API Information"),
+		fmt.Sprintf("CONSUMER KEY    : %s", ck),
+		fmt.Sprintf("CONSUMER SECRET : %s", cs),
+		fmt.Sprintf("ACCESS TOKEN    : %s", at),
+		fmt.Sprintf("ACCESS SECRET   : %s", as),
 		fmt.Sprintf("\nIf this information doesn't look right, take a look at the relevant environment variables."),
-		fmt.Sprintf("\nIf the previous sentence didn't make sense, please consult the README.\n"),
+		fmt.Sprintf("If the previous sentence didn't make sense, please consult the README.\n"),
 	}
 }
