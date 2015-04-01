@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/nickswift498/birdwatch/config"
+	"github.com/nickswift/birdwatch/config"
 	"github.com/chimeracoder/anaconda"
 )
 

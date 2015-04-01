@@ -1,8 +1,8 @@
 package actions
 
 import(
-	"github.com/nickswift498/birdwatch/client"
-	"github.com/nickswift498/birdwatch/cli/tasks"
+	"github.com/nickswift/birdwatch/client"
+	"github.com/nickswift/birdwatch/cli/tasks"
 	"fmt"
 )
 

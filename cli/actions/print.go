@@ -2,8 +2,8 @@ package actions
 
 import (
 	"fmt"
-	"github.com/nickswift498/birdwatch/client"
-	"github.com/nickswift498/birdwatch/cli/tasks"
+	"github.com/nickswift/birdwatch/client"
+	"github.com/nickswift/birdwatch/cli/tasks"
 )
 
 // the Print action simply prints the output of a task so the user can read it.

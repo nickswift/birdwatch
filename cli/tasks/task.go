@@ -1,7 +1,7 @@
 package tasks
 
 import(
-	"github.com/nickswift498/birdwatch/client"
+	"github.com/nickswift/birdwatch/client"
 )
 
 /*

@@ -1,7 +1,7 @@
 package storage
 
 import(
-	"github.com/nickswift498/birdwatch/config"
+	"github.com/nickswift/birdwatch/config"
 	"encoding/csv"
 	"path/filepath"
 	"errors"

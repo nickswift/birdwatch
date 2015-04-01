@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/nickswift498/birdwatch/config"
-	"github.com/nickswift498/birdwatch/client"
-	"github.com/nickswift498/birdwatch/cli"
-	"github.com/nickswift498/birdwatch/cli/actions"
-	"github.com/nickswift498/birdwatch/cli/tasks"
+	"github.com/nickswift/birdwatch/config"
+	"github.com/nickswift/birdwatch/client"
+	"github.com/nickswift/birdwatch/cli"
+	"github.com/nickswift/birdwatch/cli/actions"
+	"github.com/nickswift/birdwatch/cli/tasks"
 	"fmt"
 	"bufio"
 	"os"
