@@ -5,6 +5,5 @@ var (
 	Actions = map[string]Action{
 		""         : nil,
 		"print"    : ActionPrint,
-		"unfollow" : ActionUnfollow,
 	}
 )
